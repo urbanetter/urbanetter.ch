@@ -1,37 +1,12 @@
-## Welcome to GitHub Pages
+## Hi
 
-You can use the [editor on GitHub](https://github.com/urbanetter/urbanetter.ch/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+This is a collection of some experiments, unfinished side projects and some written down thoughts. Most of the stuff has something to do with programming.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## p5js
+Some more recent stuff. I love the simplicity and visuality of p5js. Here are some experiments I did with it:
 
-### Markdown
+## artificial jass intelligence
+It started with an experiment, how much effort it would take to teach a computer to play Jass, a Swiss card game. Like a lot of side projects, this project is completed about 80%. But I keep coming back to it every 6 to 12 month or so, so I might finish it at soem point....
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/urbanetter/urbanetter.ch/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## blog posts
+Back in the days when I wanted to start a blog I actually wrote some posts about software engineering stuff. Here they are.
