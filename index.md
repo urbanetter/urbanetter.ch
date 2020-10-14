@@ -13,6 +13,9 @@ This is a collaboration with [Probiere bringts](https://www.instagram.com/probie
 
 
 ### maze gernerator, a* path finder implementation
+![maze generator](assets/maze.png)
+
+
 Click in the grid for setting a start point, then a grid gets generated. A second click sets the target for the A* path find algorithm: [Demo](p5js/maze), [p5.js Editor sketch](https://editor.p5js.org/urban/sketches/1V9ImiKsw)
 
 ## artificial jass intelligence
