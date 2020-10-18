@@ -1,9 +1,7 @@
-+++
-date = "2014-03-24T21:30:42+02:00"
-draft = false
+---
+layout: default
 title = "Better or Worse"
-url = "/written/better-or-worse"
-+++
+---
 
 Following some [traces](https://twitter.com/shawnacscott/status/442010230382018560) on Twitter, I found this [podcast](http://rubyrogues.com/056-rr-david-heinemeier-hansson/) where they talk with DHH, the creator of Ruby on Rails, about software design decisions.
 

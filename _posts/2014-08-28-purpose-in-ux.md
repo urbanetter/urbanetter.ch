@@ -1,9 +1,7 @@
-+++
-date = "2014-08-28T21:39:11+02:00"
-draft = false
-title = "Purpose in UX"
-url = "written/purpose-in-ux"
-+++
+---
+layout: default
+title: "Purpose in UX"
+---
 
 In a recent project, the aim is to build a new video editor. The aim of this editor is to spilt a video in certain segments, each with a start and an endpoint.
 

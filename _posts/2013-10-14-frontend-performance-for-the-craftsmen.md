@@ -1,10 +1,7 @@
-+++
-date = "2013-10-14T20:45:40+02:00"
-draft = false
-title = "Frontend Performance for the Craftsmen"
-url = "/written/frontend-performance-for-the-craftsmen"
-
-+++
+---
+layout: default
+title: Frontend Performance for the Craftsmen
+---
 
 This is my first talk at a conference at all. It was held at Frontend conference in August 2013.
 

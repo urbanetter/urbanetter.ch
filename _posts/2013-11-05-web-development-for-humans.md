@@ -1,10 +1,7 @@
-+++
-date = "2013-11-05T21:04:00+02:00"
-draft = false
-title = "Web development for humans"
-url = "/written/web-development-for-humans"
-
-+++
+---
+layout: default
+title: "Web development for humans"
+---
 
 Long time coming: A post about coding style and the development of a developer. Pretty meta, I know :)
 
