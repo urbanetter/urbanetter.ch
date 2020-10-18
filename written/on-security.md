@@ -1,3 +1,8 @@
+---
+layout: default
+title: "On Handling Security Issues"
+---
+
 Security is kind of an odd companion which walks with you in your web developer career. It (should) always been taken care of. If you don’t take care of it, really bad things can happen. Security is often misunderstood. And a quite often, very emotional to talk about. Because it’s at the heart of every relationship: it’s about trust.
 
 In my career I witnessed some quite severe and some not so severe security issues. Interesting was the handling of the issues both from the programmer point of view as well as from the management point of view. (Well, I can say this seeing it from now. At the time the incidents happened, it was not very interesting but stressful and tense.)
