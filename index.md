@@ -19,7 +19,17 @@ This is a collaboration with [Probiere bringts](https://www.instagram.com/probie
 Click in the grid for setting a start point, then a grid gets generated. A second click sets the target for the A* path find algorithm: [Demo](p5js/maze), [p5.js Editor sketch](https://editor.p5js.org/urban/sketches/1V9ImiKsw)
 
 ## artificial jass intelligence
-It started with an experiment, how much effort it would take to teach a computer to play Jass, a Swiss card game. Like a lot of side projects, this project is completed about 80%. But I keep coming back to it every 6 to 12 month or so, so I might finish it at soem point.... [Repo](https://github.com/urbanetter/jassy)
+It started with an experiment, how much effort it would take to teach a computer to play Jass, a Swiss card game. Like a lot of side projects, this project is completed about 80%. But I keep coming back to it every 6 to 12 month or so, so I might finish it at some point.... [Repo](https://github.com/urbanetter/jassy)
 
 ## blog posts
-Back in the days when I wanted to start a blog I actually wrote some posts about software engineering stuff. Here they are.
+Back in the days when I wanted to start a blog I actually wrote some posts about software engineering stuff. 
+
+There is a post about [Security](written/on-security.md), one about composition over inheritance called [in favour of behaviours](written/in-favour-of-behaviours.md), one about [programming style](written/webdevelopment-for-humans.md) and finally one I was excited about [web components](written/web-components.html).
+
+## conference speaker
+For some reasons, I had the pleasure to speak at some international conferences:
+
+* Frontend conference, Zurich 2013, about [Frontend performance](talked/frontend_performance.html)
+* Ez Publish conference, New York 2015, a short talk about the ez publish project at work
+* Web summer camp, Rovinj 2016, about [APIs](https://2016.websummercamp.com/eZ-Publish/Practical-APIs-with-eZ-Publish-eZ-Platform)
+

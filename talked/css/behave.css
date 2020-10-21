@@ -1,0 +1,13 @@
+.reveal img {
+	border: none !important;
+}
+.reveal img.transparent {
+	box-shadow: none !important;
+}
+ul li {
+	font-size: 1em !important;
+	line-height: 1.2 !important;
+}
+.reveal pre {
+	font-size: 1em !important;
+}

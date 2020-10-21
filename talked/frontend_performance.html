@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Frontend performance - where it matters</title>
+
+		<meta name="description" content="A talk about where frontend performance really matters">
+		<meta name="author" content="Urban Etter">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
+		<link rel="stylesheet" href="css/frontend_performance.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<script type="text/javascript">
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-45678908-1', 'urbanetter.ch');
+		  ga('send', 'pageview');
+
+		</script>
+		
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Frontend Performance</h1>
+					<h3>Where it matters</h3>
+					<p>Frontend Conference 2013</p>
+					<p>Urban Etter</p>
+				</section>
+
+				<section>
+					<section>
+						<h1>About me</h1>
+					</section>
+					<section>
+						<h2>Urban Legends</h2>
+					</section>
+					<section>
+						<h2>Urban Myths</h2>
+					</section>
+					<section>
+						<img src="img/urban_species.jpg">
+					</section>
+					<section>
+						<h2>Urban Etter</h2>
+					</section>
+					<section>
+						<img src="img/srf_logo.png">
+					</section>
+					<section>
+						<h2>Schweizer Radio und Fernsehen</h2>
+					</section>
+					<section>
+						<h2>Architect</h2>
+					</section>
+					<section>
+						<h2>Part of the Frontend Team</h2>
+					</section>
+					<section>
+						<h2>@urbmc</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Performance is a</h3>
+						<h1>HUGE</h1>
+						<h3>topic</h3>
+					</section>
+					<section>
+						<aside class="notes">I could talk about...</aside>
+						<h2>Cache invalidation</h2>
+					</section>
+					<section>
+						<h2>Vertical scaling</h2>
+					</section>
+					<section>
+						<h2>Database clusters</h2>
+					</section>
+					<section>
+						<h1>This talk is not about that</h1>
+					</section>
+					<section>
+						<h2>Advices for creating</h2>
+						<h2>single-page web apps</h2>
+					</section> 
+					<section>
+						<p><code>['hello', 'world'].join(' ')</code></p>
+						<p>instead of</p>
+						<p><code>'hello' + ' ' + 'world'</code></p>
+					</section>
+					<section>
+						<h1>This talk is not about that either</h1>
+					</section>
+					<section>
+						<aside class="notes">It is however about... good practices I would recommend</aside>
+						<h2>Good practice</h2>
+					</section>
+					<section>
+						<aside class="notes">Some traps I ran into</aside>
+						<h2>Some traps</h2>
+					</section>
+					<section>
+						<aside class="notes">And some code I want to show you</aside>
+						<h2>Some code</h2>
+					</section>
+					<section>
+						<aside class="notes">I could also call the talk</aside>
+						<h2>Frontend performance for the</h2>
+						<h1>craftsman</h1>
+					</section>
+					<section>
+						<h2>#1 Performance matters</h2>
+						<h2 class="fragment">#2 Loading process</h2>
+						<h2 class="fragment">#3 Don't block the browser</h2>
+						<h2 class="fragment">#4 Deferred loading of JS</h2>
+					</section>
+					<section>
+						<h2>#5 Browser cache</h2>
+						<h2 class="fragment">#6 Tools</h2>
+						<h2 class="fragment">#7 DOM manipulation</h2>
+						<h2 class="fragment">#8 Recap</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>#1 Performance matters</h1>
+					</section>
+					<section>
+						<blockquote>
+							... that slowing down the search results page by 100 to 400 milliseconds has a measurable impact on the number of searches per user of -0.2% to -0.6%
+						</blockquote>
+						<p>by <a href="http://googleresearch.blogspot.ch/2009/06/speed-matters.html">Google</a></p>
+					</section>
+					<section>
+						<blockquote>
+							To get that sensation, your requests need to take less than 100ms.
+						</blockquote>
+						<p>by <a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">37 signals</a>
+					</section>
+					<section>
+						<h2>Performance is a</h2>
+						<h1>feature</h1>
+					</section>
+					<section>
+						<h2>It takes effort to get it right</h2>
+					</section>
+					<section>
+						<h3>It conflicts with other features</h3>
+						<h3 class="fragment">Reduced complexity</h3>
+						<h3 class="fragment">Maintainability</h3>
+						<h3 class="fragment">Security</h3>
+					</section>
+					<section>
+						<h2>Complex</h2>
+					</section>
+					<section>
+						<h3>Involves every discipline in web development</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>#2 Loading process</h1>
+					</section>
+					<section>
+						<h2>Key to frontend performance</h2>
+						<h2 class="fragment">is to understand the page loading process</h2>
+					</section>
+					<section>
+						<aside class="notes">This is how it would look if users browser and the server texted to each other</aside>
+						<img src="img/server_talking.png">
+					</section>
+					<section>
+						<aside class="notes">In reality</aside>
+						<h2>A lot faster</h2>
+						<h2 class="fragment">A lot more files</h2>
+					</section>
+					<section>
+						<img src="img/loading_waterfall.png">
+					</section>
+					<section>
+						<aside class="notes">If you zoom to the first line</aside>
+						<img src="img/waterfall_context.png">
+					</section>
+					<section>
+						<h2>timing point #1: fetch the initial HTML</h2>
+						<h2 class="fragment">timing point #2: reach DOM ready</h2>
+						<h2 class="fragment">timing point #3: reach "loaded" event</h2>
+						<aside class="notes">Spinning circle disappears at 4.5 seconds</aside>
+					</section>
+					<section>
+						<aside class="notes">What we also can see from this image is</aside>
+						<img src="img/waterfall_parallel_requests.png">
+					</section>
+					<section>
+						<h3>Not all images load in parallel</h3>
+					</section>
+					<section>
+						<h3>Restriction is</h3>
+						<h3>part of the HTTP standard</h3>
+					</section>
+					<section>
+						<h2>2 parallel connections per host</h2>
+						<p>for older browsers</p>
+					</section>
+					<section>
+						<h3>Modern browsers</h3>
+						<h2>6 parallel connections per host</h2>
+						<aside class="notes">Some browsers have more</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>#3 Don't block the browser</h1>
+					</section>
+					<section>
+						<pre><code data-trim>
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;script src="script.js"&gt; &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  My fancy content
+&lt;/body&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>JS loading and parsing</h2>
+						<h1>blocks</h1>
+						<h2>the rendering process</h2>
+					</section>
+					<section>
+						<h2>Solution 1</h2>
+					</section>
+					<section>
+						<h2>Use the <code>async</code> attribute</h2>
+					</section>
+					<section>
+						<pre><code data-trim>
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;script src="script.js" async&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  My fancy content
+&lt;/body&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2><code>async</code> == not blocking</h2>
+					</section>
+					<section>
+						<h2>Solution 2</h2>
+						<p>Preferred</p>
+					</section>
+					<section>
+						<h2>Put JS at the end of the body tag</h2>
+					</section>
+					<section>
+						<aside class="notes">Preferred because you do not have to care about older browsers</aside>
+						<pre><code data-trim>
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  My fancy content
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>#4 Deferred loading of Javascript</h1>
+					</section>
+					<section>
+						<h2>Not all JS is needed in all situations</h2>
+					</section>
+					<section>
+						<img src="img/deferred_calendar.png">
+					</section>
+					<section>
+						<h3>Load calendar JS when</h3>
+						<h2>clicking</h2>
+						<h3>on the calendar</h3>
+					</section>
+					<section>
+						<aside class="notes">Problem: JS is needed on hover</aside>
+						<img src="img/calendar.png">
+					</section>
+					<section>
+						<h3>Load calendar JS when</h3>
+						<h2>hovering</h2>
+						<h3>over the calendar</h3>
+					</section>
+					<section>
+						<h2>Problem: delay on hovering</h2>
+					</section>
+					<section>
+						<h2>Load calendar JS when all other code is loaded</h2>
+					</section>
+					<section>
+						<h2>Result: Added</h2>
+						<h1>Complexity</h1>
+					</section>
+					<section>
+						<h2>Performance is a</h2>
+						<h1>feature</h1>
+					</section>	
+					<section>
+						<h1>NOT WORTH IT</h1>
+						<h2>unless you are creating a</h2>
+						<h2>single-page application</h2>
+					</section>
+					<section>
+						<h2>Been there, done that</h2>
+					</section>
+					<section>
+						<h3>Deferred != Bad</h3>
+					</section>
+					<section>
+						<h2>Deferred image loading</h2>
+						<h1>FTW</h1>
+					</section>
+					<section>
+						<aside class="notes">About 320 shows</aside>
+						<img src="img/podcasts.png">
+					</section>
+					<section>
+						<h2>Lazy load jQuery plugin</h2>
+						<p><a href="http://www.appelsiini.net/projects/lazyload">Lazy load plugin for jQuery</a></p>
+					</section>
+					<section>
+						<pre><code data-trim>
+&lt;img src="img/placeholder.png" 
+     data-original-src="img/real_image.jpg"&gt;						
+						</code></pre>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<aside class="notes">Let me tell you about a less known friend of yours</aside>
+						<h1>#5 Browser cache</h1>
+					</section>
+					<section>
+						<h2>The good and the bad parts</h2>
+					</section>
+					<section>
+						<h2>All JS in one file</h2>
+						<h2 class="fragment">Tell the browser to cache it</h2>
+						<h2 class="fragment">Browser only has to download it once</h2>
+					</section>
+					<section>
+						<h1>Free</h1>
+						<h2>for the rest of the stay</h2>
+					</section>
+					<section>
+						<aside class="notes">Because</aside>
+						<h3>Better have</h3>
+						<h2>one big</h2>
+						<h3>request</h3>
+					</section>
+					<section>
+						<h3>than have</h3>
+						<h2>a lot of small</h2>
+						<h3>requests</h3>
+					</section>
+					<section>
+						<h1>CSS sprites</h1>
+					</section>
+					<section>
+						<img src="img/radio.png">
+					</section>
+					<section>
+						<img src="img/sprite.png" width="752" height="44">
+					</section>
+					<section>
+						<pre><code data-trim>
+.sprite-musikwelle {background-position: 0 0; width: 46px; height: 22px;}
+.sprite-srf1 {background-position: -66px 0; width: 46px; height: 22px;}
+.sprite-srf2 {background-position: -132px 0; width: 46px; height: 22px;}
+.sprite-srf3 {background-position: -198px 0; width: 46px; height: 22px;}
+.sprite-srf4 {background-position: -264px 0; width: 46px; height: 22px;}
+.sprite-virus {background-position: -330px 0; width: 46px; height: 22px;}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Performance is a</h2>
+						<h1>feature</h1>
+					</section>
+					<section>
+						<h1>Complexity</h1>
+						<h2>vs</h2>
+						<h1>Performance</h1>
+					</section>
+
+					<section>
+						<h2>The bad parts</h2>
+					</section>
+					<section>
+						<h2>You change your CSS</h2>
+					</section>
+					<section>
+						<h2>Browser cached CSS</h2>
+						<aside class="notes">Your new friend browser cache tricks you here</aside>
+					</section>
+					<section>
+						<img src="img/calmclearcache.jpg">
+					</section>
+					<section>
+						<code>&lt;script src="script.js"&gt;&lt;/script&gt;</code>
+					</section>
+					<section>
+						<code>&lt;script src="script.js?v=12"&gt;&lt;/script&gt;</code>
+					</section>
+					<section>
+						<aside class="notes">How we do this at srf.ch</aside>
+						<pre><code data-trim>
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  My fancy content
+  {render_include('global')}
+&lt;/body&gt;
+						</code></pre>
+					</section>
+					<section>
+						<pre><code data-trim>
+[global]
+javascript[]=jquery.js
+javascript[]=jquery.cookie.js
+...
+						</code></pre>
+					</section>
+					<section>
+						<pre><code data-trim>
+function render_include(groupName) {
+  files = getFilesByGroup(groupName);
+  if (files.newest &gt; lastRun.timestamp) {
+    result = pack(concatenate(files));
+    filename = md5(files.newest);
+    save_file(filename, result);
+  } else {
+    filename = lastRun.filename; }
+  return '&lt;script src="filename"&gt;'; }
+						</code></pre>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h1>#6 Tools</h1>
+					</section>
+					<section>
+						<h2>YSlow</h2>
+						<img src="img/yslow.png">
+					</section>
+					<section>
+						<h2>Chrome Developer Tools</h2>
+						<img src="img/chrome_developer_tools.png">
+					</section>
+					<section>
+						<h2>Google PageSpeed Insights</h2>
+						<img src="img/google_page_speed.png">
+					</section>					
+					<section>
+						<h2>Web page test</h2>
+						<img src="img/webpagetest.png">
+					</section>
+					<section>
+						<img src="img/webpagetest_result.png">
+					</section>
+					<section>
+						<img src="img/webpagetest_content_breakdown.png">
+					</section>
+					<section>
+						<h2>Regression test</h2>
+					</section>
+					<section>
+						<h2>Show slow</h2>
+						<img src="img/showslow.png">
+					</section>
+				</section>
+
+
+				<section>
+					<section>
+						<h1>#7 DOM manipulation</h1>
+					</section>
+					<section>
+						<h2>DOM</h2>
+						<h2>internal HTML representation</h2>
+						<h2>accessible by JS</h2>
+						<aside class="notes">Not a technical definition</aside>
+					</section>
+					<section>
+						<aside class="notes">What the browser has to do when executing a JS call. Not the part of jQuery, which translates the sugar syntax into othe DOM methods.</aside>
+						<pre><code>$('#msg').addClass('very_important');</code></pre>
+						<p>&nbsp;</p>
+						<h3 class="fragment">Look up the element with id "msg" in the internal structure</h3>
+						<h3 class="fragment">Modify the internal structure</h3>
+						<h3 class="fragment">Rerender (at least parts) of the page</h3>
+					</section>
+					<section>
+						<h2>Save DOM manipulations</h2>
+					</section>
+					<section>
+						<h1>Real world example</h1>
+					</section>
+					<section>
+						<img src="img/sendungen-a-z.png">
+						<aside class="notes">316 shows (radio and tv)</aside>
+					</section>
+					<section>
+						<h2>Filtering</h2>
+						<img src="img/sendungen-a-z-filter.png">
+					</section>
+					<section>
+						<h2>Column markup in 2 &lt;ul&gt;s</h2>
+						<img src="img/sendungen-a-z-two-uls.png">
+					</section>
+					<section>
+						<h2>HTML - Selects</h2>
+						<pre><code data-trim>
+&lt;select id=&quot;topic&quot;&gt;
+  &lt;option value=&quot;topic:news&quot;&gt;
+    News
+  &lt;/option&gt;
+  &lt;option value=&quot;topic:twitter-relevant&quot;&gt;
+    Twitter relevant
+  &lt;/option&gt;
+&lt;/select&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>HTML - Letters</h2>
+						<pre><code data-trim>
+&lt;div class="letter" data-letter=&quot;t&quot;&gt;
+  &lt;ul&gt;
+    &lt;li data-attr=&quot;topic:news,station:srf1&quot;&gt;
+      Tagesschau&lt;/li&gt;
+  &lt;/ul&gt;&lt;ul&gt;
+    &lt;li data-attr=&quot;topic:twitter-relevant&quot;&gt;
+      Tatort&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>First aproach</h2>
+						<pre><code data-trim>
+var topic = $('#topic-filter').val();
+var station = $('#station-filter').val();
+var selector =
+  '[data-attr*="' + topic + '"]'
+  + '[data-attr*="' + station + '"]';
+
+$('li').show(); // reset
+$('li:not(' + selector + ')').hide();
+						</code></pre>
+					</section>
+					<section>
+						<h2>Result</h2>
+						<img src="img/sendungen-a-z-first-aproach.png">
+					</section>
+					<section>
+						<h2>Second approach</h2>
+						<h3 class="fragment">Hide all shows</h3>
+						<h3 class="fragment">Iterate through letters</h3>
+						<h3 class="fragment">Clone matching shows</h3>
+						<h3 class="fragment">Append cloned shows to left or right list</h3>
+						<h3 class="fragment">Show cloned shows</h3>
+					</section>
+					<section>
+						<h2>Iterating and cloning</h2>
+						<pre><code data-trim>
+$('div.letter').each(function(){
+  $('li.show')
+    .hide()
+    .find(selector)
+    .clone()
+    .addClass('copied')
+    .appendTo('body');
+    ... });
+						</code></pre>
+					</section>					
+					<section>
+						<h2>Iterating and cloning</h2>
+						<pre><code data-trim>
+...
+$('li.copied).each(function(){
+  // append to left or right ul	
+  $(this).show();
+});
+...
+						</code></pre>
+					</section>					
+					<section>
+						<img src="img/spinning_wheel.gif" border="0" class="transparent">
+					</section>
+					<section>
+						<h3>This was</h3>
+						<h1>slow</h1>
+					</section>
+					<section>
+						<h2>Third approach</h2>
+					</section>
+					<section>
+						<h2>Iterating</h2>
+						<pre><code data-trim>
+$repository = $('li.show').hide();
+$('div.letter').each(function(){
+  $repository
+    .find(selector)
+    .clone()
+    .each(function(){
+	  // append to left or right ul	
+    })
+    .show(); });
+						</code></pre>						
+					</section>				
+					<section>
+						<h3>This was</h3>
+						<h1>fast</h1>
+					</section>
+					<section>
+						<h3>What's the</h3>
+						<h1>difference</h1>
+					</section>
+					<section>
+						<h2>Second approach</h2>
+						<h3>Inserting cloned Nodes in DOM</h3>
+						<h3>And work on them</h3>
+					</section>
+					<section>
+						<h2>Third approach</h2>
+						<h3>Do not insert until ready</h3>
+					</section>
+					<section>
+						<h1>DOM manipulation</h1>
+						<h3>is the key here</h3>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h1>#8 Recap</h1>
+					</section>
+					<section>
+						<h2>Performance is a</h2>
+						<h1>Feature</h1>
+						<aside class="notes">This is the most important one, really. If you think this talk is shit but you take away this info, I'm happy :)</aside>
+					</section>
+					<section>
+						<h2>CSS in the head</h2>
+						<h2>JS just before closing tag of body</h2>
+					</section>
+					<section>
+						<h2>Put all your CSS and JS in</h2>
+						<h1>One file</h1>
+					</section>
+					<section>
+						<h2>Version CSS and JS files</h2>
+					</section>
+					<section>
+						<h2>Use tools to measure</h2>
+						<h2>performance over time</h2>
+					</section>
+					<section>
+						<h2>Save DOM manipulations</h2>
+					</section>
+				</section>
+				
+				<section>
+					<h1>Q&amp;A</h1>
+				</section>
+				
+				<section>
+					<h1>Thank you!</h1>
+					<h3>Slides at</h3>
+					<h3><a href="https://speakerdeck.com/urbanetter">speakerdeck.com/urbanetter</a></h3>
+					<h3>@urbmc</h3>
+				</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				rollingLinks: false,
+				
+				width: 1024,
+			    height: 768,
+			    
+
+				theme: 'beige', // available themes are in /css/theme
+				transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
