@@ -1,6 +1,6 @@
 # Hi, I'm Urban Etter
 
-This is a collection of some experiments, unfinished side projects and some written down thoughts. Most of the stuff has something to do with programming.
+This is a collection of some experiments, unfinished side projects and some written down thoughts. Most of the stuff has something to do with programming. You can reach me on [Twitter](https://twitter.com/urbmc) or [LinkedIn](https://www.linkedin.com/in/urban-etter/).
 
 ## p5js
 Some more recent stuff. I love the simplicity and visuality of p5js. Here are some experiments I did with it:
