@@ -16,7 +16,7 @@ This is a collaboration with [Probiere bringts](https://www.instagram.com/probie
 ![maze generator](assets/maze.png)
 
 
-Click in the grid for setting a start point, then a grid gets generated. A second click sets the target for the A* path find algorithm: [Demo](p5js/maze), [p5.js Editor sketch](https://editor.p5js.org/urban/sketches/1V9ImiKsw)
+Click in the grid for setting a start point, then a maze gets generated. A second click sets the target for the A* path find algorithm: [Demo](p5js/maze), [p5.js Editor sketch](https://editor.p5js.org/urban/sketches/1V9ImiKsw)
 
 ## artificial jass intelligence
 It started with an experiment, how much effort it would take to teach a computer to play Jass, a Swiss card game. Like a lot of side projects, this project is completed about 80%. But I keep coming back to it every 6 to 12 month or so, so I might finish it at some point.... [Repo](https://github.com/urbanetter/jassy)
