@@ -2,20 +2,20 @@ let bkgd, chess, pieces, moves;
 const SIZE = 50;
 
 function preload() {
-    bkgd = loadImage('assets/_bkgd.png');
+    bkgd = loadImage('/assets/chess/_bkgd.png');
     pieces = {
-      bk: loadImage('assets/bk.png'),
-      bq: loadImage('assets/bq.png'),
-      br: loadImage('assets/br.png'),
-      bn: loadImage('assets/bn.png'),
-      bb: loadImage('assets/bb.png'),
-      bp: loadImage('assets/bp.png'),
-      wk: loadImage('assets/wk.png'),
-      wq: loadImage('assets/wq.png'),
-      wr: loadImage('assets/wr.png'),
-      wn: loadImage('assets/wn.png'),
-      wb: loadImage('assets/wb.png'),
-      wp: loadImage('assets/wp.png'),
+      bk: loadImage('/assets/chess/bk.png'),
+      bq: loadImage('/assets/chess/bq.png'),
+      br: loadImage('/assets/chess/br.png'),
+      bn: loadImage('/assets/chess/bn.png'),
+      bb: loadImage('/assets/chess/bb.png'),
+      bp: loadImage('/assets/chess/bp.png'),
+      wk: loadImage('/assets/chess/wk.png'),
+      wq: loadImage('/assets/chess/wq.png'),
+      wr: loadImage('/assets/chess/wr.png'),
+      wn: loadImage('/assets/chess/wn.png'),
+      wb: loadImage('/assets/chess/wb.png'),
+      wp: loadImage('/assets/chess/wp.png'),
     };
 }
 
