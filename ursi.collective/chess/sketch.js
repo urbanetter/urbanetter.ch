@@ -38,6 +38,6 @@ function draw() {
   }
 }
 
-function mouseClicked() {
+function mousePressed() {
   chess.move(moves.shift());
 }
