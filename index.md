@@ -2,9 +2,11 @@
 
 This is a collection of some experiments, unfinished side projects and some written down thoughts. Most of the stuff has something to do with programming. You can reach me on [Twitter](https://twitter.com/urbmc) or [LinkedIn](https://www.linkedin.com/in/urban-etter/).
 
+## SoCraTes Day 2022
+SoCraTes day 2022 was on Friday, 16. September 2022. I wrote some words about it. If you're intereseted, read it [here](/written/socrates-day-2022.md).
+
 ## p5js
 Some more recent stuff. I love the simplicity and visuality of p5js. Here are some experiments I did with it:
-
 
 ### seems different from far away
 ![from far away](assets/from_far_away.png)
