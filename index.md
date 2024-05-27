@@ -14,7 +14,7 @@ Some more recent stuff. I love the simplicity and visuality of p5js. Here are so
 This is a collaboration with [Probiere bringts](https://www.instagram.com/probiere_bringts). The aim was to draw an image with one stroke, so it can also easily be plotted: [Demo](p5js/faraway), [p5.js Editor sketch](https://editor.p5js.org/urban/sketches/_wJiaSFMS)
 
 
-### maze gernerator, a* path finder implementation
+### maze generator, a* path finder implementation
 ![maze generator](assets/maze.png)
 
 
