@@ -1,7 +1,7 @@
 ---
 title: "Ursi Collective"
 category: "Project"
-summary: "A small creative coding collective experimenting with playful visuals and generative storytelling."
+summary: "A small creative coding collective experimenting with playful visuals."
 role: "Collaborative project"
 primaryLink:
   label: "See the chess experiment"

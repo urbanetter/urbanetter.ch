@@ -4,12 +4,7 @@
   "tagline": "Engineering playful systems & communities",
   "url": "https://urbanetter.ch",
   "now": {
-    "location": "Zurich, Switzerland",
-    "focus": [
-      "Leading product engineering teams at Ringier",
-      "Exploring creative coding and generative art",
-      "Writing about humane software development"
-    ]
+    "location": "Untersiggenthal, Switzerland"
   },
   "nav": [
     { "title": "Writing", "url": "/writing/" },
@@ -18,7 +13,6 @@
     { "title": "Talks", "url": "/talks/" }
   ],
   "social": {
-    "twitter": "https://twitter.com/urbmc",
     "linkedin": "https://www.linkedin.com/in/urban-etter/",
     "github": "https://github.com/urbanetter",
     "email": "hello@urbanetter.ch"
