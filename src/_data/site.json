@@ -1,0 +1,20 @@
+{
+  "title": "Urban Etter",
+  "description": "Software engineering lead crafting playful products, teams, and tools.",
+  "tagline": "Engineering playful systems & communities",
+  "url": "https://urbanetter.ch",
+  "now": {
+    "location": "Untersiggenthal, Switzerland"
+  },
+  "nav": [
+    { "title": "Writing", "url": "/writing/" },
+    { "title": "Experiments", "url": "/experiments/" },
+    { "title": "Projects", "url": "/projects/" },
+    { "title": "Talks", "url": "/talks/" }
+  ],
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/urban-etter/",
+    "github": "https://github.com/urbanetter",
+    "email": "hello@urbanetter.ch"
+  }
+}

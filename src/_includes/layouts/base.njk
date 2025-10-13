@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if title %}{{ title }} · {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ description or site.description }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/styles/global.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <div class="navbar">
+          <a class="brand" href="/">{{ site.title }}</a>
+          <nav aria-label="Primary">
+            <ul>
+              {% for item in site.nav %}
+                <li><a href="{{ item.url }}" {% if item.url == page.url %}aria-current="page"{% endif %}>{{ item.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        {% block content %}{% endblock %}
+      </main>
+      <footer class="site-footer">
+        <p>Built in Markdown, assembled with Eleventy, and hosted by GitHub.</p>
+        <div class="links">
+          <span class="badge">Currently in {{ site.now.location }}</span>
+          <a href="{{ site.social.linkedin }}">LinkedIn</a>
+          <a href="{{ site.social.github }}">GitHub</a>
+          <a href="mailto:{{ site.social.email }}">Say hi</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

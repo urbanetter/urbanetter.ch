@@ -1,0 +1,24 @@
+---
+layout: layouts/page.njk
+title: Creative coding experiments
+permalink: "/experiments/"
+description: Notes and sketches from generative art and p5.js explorations.
+---
+
+<section class="hero">
+  <h1 class="hero__title">Creative coding experiments</h1>
+  <p class="hero__subtitle">I use p5.js and other playful tools to explore motion, texture, and storytelling through code.</p>
+</section>
+
+<div class="grid grid--two">
+  {% for experiment in collections.experiments %}
+    <article class="card">
+      {% if experiment.data.image %}
+        <div class="card__media"><img src="{{ experiment.data.image }}" alt="{{ experiment.data.title }}"></div>
+      {% endif %}
+      <h2 class="card__title"><a href="{{ experiment.url }}">{{ experiment.data.title }}</a></h2>
+      <p>{{ experiment.data.summary }}</p>
+      <div class="card__actions"><a href="{{ experiment.url }}">Read the story →</a></div>
+    </article>
+  {% endfor %}
+</div>

@@ -1,21 +1,26 @@
 ---
-layout: default
-title = "Better or Worse"
+title: "Better or worse"
+category: "Note"
+date: 2014-03-24
+summary: "When in doubt, compare the code before and after the change and let that verdict guide you."
+tags:
+  - writing
+layout: layouts/article.njk
 ---
 
 Following some [traces](https://twitter.com/shawnacscott/status/442010230382018560) on Twitter, I found this [podcast](http://rubyrogues.com/056-rr-david-heinemeier-hansson/) where they talk with DHH, the creator of Ruby on Rails, about software design decisions.
 
 David told that for him, the most important point of making decisions about code is to actually see a code before and after a certain refactoring or feature.
 
-Show real world code before you do a refactoring/ new feature and after it. It should be imidiately clear that the new code is simpler and better. A quote from the transcript: 
+Show real world code before you do a refactoring/ new feature and after it. It should be immediately clear that the new code is simpler and better. A quote from the transcript:
 
 > "You will see the code and you will see whether it’s better or whether it’s worse."
 
-He argues that a lot of the so called "subjective" point of views are basically not subjective because if you step away from it and judge the code objectively, most of the programmers come to the same conslusion.
+He argues that a lot of the so called "subjective" point of views are basically not subjective because if you step away from it and judge the code objectively, most of the programmers come to the same conclusion.
 
 > "These things that sound [...] subjective are actually not that subjective because I find that most reasonable people actually agree."
 
-And this verdict is actually the only one which matters. And we should value this verdict higher than any other rule or "best practice" we somehow should respect. Because if the rule is against the better code then it is not fullfilling it's purpose.
+And this verdict is actually the only one which matters. And we should value this verdict higher than any other rule or "best practice" we somehow should respect. Because if the rule is against the better code then it is not fulfilling its purpose.
 
 What's also interesting is that he says that he does not abstract a pattern until he sees it 3 or 4 times in a codebase. This is strictly speaking a violation of the "DRY" principle, which was pushed a lot by RoR. This also shows that he thinks that you should not blindly follow a rule.
 

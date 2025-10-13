@@ -1,0 +1,25 @@
+{% extends "layouts/page.njk" %}
+
+{% block page_content %}
+  <header class="hero">
+    {% if category %}
+      <p class="hero__kicker">{{ category }}</p>
+    {% elseif tags %}
+      <p class="hero__kicker">{{ tags | join(', ') | capitalize }}</p>
+    {% endif %}
+    <h1 class="hero__title">{{ title }}</h1>
+    {% if page.date %}
+      <p class="card__meta">Published {{ page.date | readableDate }}</p>
+    {% endif %}
+  </header>
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+  {% if links %}
+    <div class="card__actions" style="margin-top:1.5rem; font-size:1rem;">
+      {% for link in links %}
+        <a href="{{ link.url }}">{{ link.label }} →</a>{% if not loop.last %}&nbsp;&nbsp;{% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}
