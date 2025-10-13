@@ -228,6 +228,21 @@ nav a[aria-current="page"] {
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
+.prose .sketch-embed {
+  margin: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.prose .sketch-embed iframe {
+  width: min(100%, 520px);
+  aspect-ratio: 1 / 1;
+  border: 0;
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 18px 42px rgba(17, 24, 32, 0.12);
+}
+
 .prose pre {
   background: var(--code-bg);
   color: var(--code-text);

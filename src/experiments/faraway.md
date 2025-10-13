@@ -9,7 +9,7 @@ tags:
 layout: layouts/article.njk
 date: 2022-07-01
 links:
-  - label: "Open the sketch"
+  - label: "View full screen"
     url: "/p5js/faraway/"
   - label: "View on the p5.js editor"
     url: "https://editor.p5js.org/urban/sketches/_wJiaSFMS"
@@ -19,9 +19,14 @@ This sketch draws a portrait in a single, continuous line. I worked with **Probi
 
 The final render is printed as risograph layers in black and neon pink. Coding the sketch in p5.js made it fast to tweak the flow of the line while the plotter patiently traced every pixel.
 
+<div class="sketch-embed">
+  <iframe
+    src="/p5js/faraway/"
+    title="Seems different from far away sketch"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
 - Techniques: sampling an image and plotting a single polyline
 - Made with: p5.js, Illustrator, and an AxiDraw plotter
-
-<div class="card__actions">
-  <a href="/p5js/faraway/">Launch the sketch →</a>
-</div>
