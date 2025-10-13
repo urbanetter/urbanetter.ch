@@ -18,6 +18,5 @@ The project now contains:
 
 - A simulation engine that can play thousands of matches and log every move
 - A rule system to keep AIs respectful of the table etiquette
-- Experiments with Monte Carlo tree search and handcrafted heuristics
 
 It is about eighty percent done—like any good side project—and keeps pulling me back for another round.
