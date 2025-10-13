@@ -2,6 +2,8 @@
 
 {% block content %}
   <article class="page">
-    {% block page_content %}{% endblock %}
+    {% block page_content %}
+      {{ content | safe }}
+    {% endblock %}
   </article>
 {% endblock %}
