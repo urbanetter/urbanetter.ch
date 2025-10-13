@@ -1,0 +1,29 @@
+---
+layout: layouts/page.njk
+title: Talks & workshops
+permalink: "/talks/"
+description: Conference talks, workshops, and meetups I have hosted or contributed to.
+---
+
+<section class="hero">
+  <h1 class="hero__title">Talks & workshops</h1>
+  <p class="hero__subtitle">From conference stages to intimate meetups, I love helping people discover different ways of working with software.</p>
+</section>
+
+<div class="grid">
+  {% for talk in collections.talks %}
+    <article class="card">
+      <p class="card__kicker">{{ talk.date | readableDate }}</p>
+      <h2 class="card__title"><a href="{{ talk.url }}">{{ talk.data.title }}</a></h2>
+      <p class="card__meta">{{ talk.data.event }}</p>
+      <p>{{ talk.data.summary }}</p>
+      <div class="card__actions">
+        {% if talk.data.links %}
+          {% for link in talk.data.links %}
+            <a href="{{ link.url }}">{{ link.label }} →</a>{% if not loop.last %} &nbsp;{% endif %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+</div>

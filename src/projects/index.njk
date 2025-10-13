@@ -1,0 +1,29 @@
+---
+layout: layouts/page.njk
+title: Projects
+permalink: "/projects/"
+description: Longer-running software projects and collaborations.
+---
+
+<section class="hero">
+  <h1 class="hero__title">Projects</h1>
+  <p class="hero__subtitle">A mix of professional adventures, community work, and personal tools that refuse to leave me alone.</p>
+</section>
+
+<div class="grid grid--two">
+  {% for project in collections.projects %}
+    <article class="card">
+      <h2 class="card__title"><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+      <p class="card__meta">{{ project.data.role }}</p>
+      <p>{{ project.data.summary }}</p>
+      <div class="card__actions">
+        {% if project.data.primaryLink %}
+          <a href="{{ project.data.primaryLink.url }}">{{ project.data.primaryLink.label }} →</a>
+        {% endif %}
+        {% if project.data.secondaryLink %}
+          &nbsp;<a href="{{ project.data.secondaryLink.url }}">{{ project.data.secondaryLink.label }} →</a>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
+</div>

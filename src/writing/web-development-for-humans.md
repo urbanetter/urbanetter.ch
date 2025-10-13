@@ -1,6 +1,11 @@
 ---
-layout: default
 title: "Web development for humans"
+category: "Essay"
+date: 2013-11-05
+summary: "Write code for the people who will read it next, not just for the machine."
+tags:
+  - writing
+layout: layouts/article.njk
 ---
 
 Long time coming: A post about coding style and the development of a developer. Pretty meta, I know :)
@@ -19,4 +24,4 @@ Now having a plan where you're heading is always a good thing. And coming back t
 
 The practical impacts of this decision are to put the *readability and therefore the maintainability first*. If you start to go in this direction you often find that your code is too complicated. You start to realize that 15 classes for just fetching some answers from a HTTP-API is too much. You start to realize that it is not always good to abstract something if you do not need the abstraction. If the reader or user of your code does not have to get all your smart abstractions to find out what the code does, why not save the hassle for her?
 
-I realized that often more "straight forward" code is better readable. It may not be as beautiful and as easely extendable as other code, but it sure is better maintainable. And the longer I work in this business the more I tend to put more weight on the maintainability side. As stated above: This does not mean you should not use abstractions. They help a lot. But if you think about that poor guy which has to maintain your code, maybe you do one abstraction less and one thing more explicit. &lt;bold statement&gt;You will write more maintainable code. And therefore better code. &lt;/bold statement&gt;.
+I realized that often more "straight forward" code is better readable. It may not be as beautiful and as easily extendable as other code, but it sure is better maintainable. And the longer I work in this business the more I tend to put more weight on the maintainability side. As stated above: This does not mean you should not use abstractions. They help a lot. But if you think about that poor guy which has to maintain your code, maybe you do one abstraction less and one thing more explicit. **You will write more maintainable code. And therefore better code.**

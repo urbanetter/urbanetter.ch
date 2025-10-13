@@ -1,0 +1,26 @@
+{
+  "title": "Urban Etter",
+  "description": "Software engineering lead crafting playful products, teams, and tools.",
+  "tagline": "Engineering playful systems & communities",
+  "url": "https://urbanetter.ch",
+  "now": {
+    "location": "Zurich, Switzerland",
+    "focus": [
+      "Leading product engineering teams at Ringier",
+      "Exploring creative coding and generative art",
+      "Writing about humane software development"
+    ]
+  },
+  "nav": [
+    { "title": "Writing", "url": "/writing/" },
+    { "title": "Experiments", "url": "/experiments/" },
+    { "title": "Projects", "url": "/projects/" },
+    { "title": "Talks", "url": "/talks/" }
+  ],
+  "social": {
+    "twitter": "https://twitter.com/urbmc",
+    "linkedin": "https://www.linkedin.com/in/urban-etter/",
+    "github": "https://github.com/urbanetter",
+    "email": "hello@urbanetter.ch"
+  }
+}
