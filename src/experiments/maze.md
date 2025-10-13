@@ -17,11 +17,14 @@ links:
 
 This experiment combines a recursive backtracking maze generator with an A* implementation. Click once to seed the maze; click a second time to set the goal and watch the pathfinder work.
 
-I built it as a refresher on graph algorithms and as a tactile way to show how heuristics guide the search. It is a neat party trick when paired with a projector.
-
-- Techniques: recursive backtracking, heuristics, and visual debugging
+- Techniques: recursive backtracking
 - Made with: p5.js
 
-<div class="card__actions">
-  <a href="/p5js/maze/">Explore the maze →</a>
+<div class="sketch-embed">
+  <iframe
+    src="/p5js/maze/"
+    title="Maze generator"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
 </div>

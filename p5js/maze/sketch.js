@@ -11,7 +11,11 @@ var end;
 var state = 'set start';
 
 function setup() {
-  createCanvas(cellSize * cellCount, cellSize * cellCount);
+  const myCanvas = createCanvas(cellSize * cellCount, cellSize * cellCount);
+  let newCanvasX = (windowWidth - width)/2;
+  let newCanvasY = (windowHeight - height)/2;
+  myCanvas.position(newCanvasX,newCanvasY)
+
   for (var x = 0; x < cellCount; x++) {
     var rows = [];
     for (var y = 0; y < cellCount; y++) {

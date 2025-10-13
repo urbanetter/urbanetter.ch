@@ -15,9 +15,9 @@ links:
     url: "https://editor.p5js.org/urban/sketches/_wJiaSFMS"
 ---
 
-This sketch draws a portrait in a single, continuous line. I worked with **Probiere bringts** on an illustration that could also be plotted with a pen plotter. The line weight changes based on the underlying brightness of the reference image, which helps to keep the facial features readable from a distance.
+This sketch draws a portrait in a single, continuous line. I worked with **Probiere bringts** on an illustration that could also be plotted with a pen plotter. The image is separated in a grid and we get the "darkness" of each cell. The darkness defines how many times the cell has to be visited by the one, continous line. The darker, the more the cell has to be visited.
 
-The final render is printed as risograph layers in black and neon pink. Coding the sketch in p5.js made it fast to tweak the flow of the line while the plotter patiently traced every pixel.
+The the line starts at a random cell and finds the next cell which has to be visiteted in a random direction. The count, how many times the cell has to be visited is then decremented.
 
 <div class="sketch-embed">
   <iframe
@@ -29,4 +29,4 @@ The final render is printed as risograph layers in black and neon pink. Coding t
 </div>
 
 - Techniques: sampling an image and plotting a single polyline
-- Made with: p5.js, Illustrator, and an AxiDraw plotter
+- Made with: p5.js
