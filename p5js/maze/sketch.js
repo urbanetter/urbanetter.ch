@@ -9,12 +9,14 @@ var start;
 var end;
 
 var state = 'set start';
+var canvasElement;
 
 function setup() {
   const myCanvas = createCanvas(cellSize * cellCount, cellSize * cellCount);
   let newCanvasX = (windowWidth - width)/2;
   let newCanvasY = (windowHeight - height)/2;
-  myCanvas.position(newCanvasX,newCanvasY)
+  myCanvas.position(newCanvasX,newCanvasY);
+  canvasElement = myCanvas.elt;
 
   for (var x = 0; x < cellCount; x++) {
     var rows = [];
@@ -66,8 +68,27 @@ function mousePressed() {
   handleInteraction(mouseX, mouseY);
 }
 
-function touchStarted() {
-  handleInteraction(mouseX, mouseY);
+function touchStarted(event) {
+  if (canvasElement) {
+    var touch = event && event.changedTouches && event.changedTouches[0];
+    if (!touch && event && event.touches && event.touches[0]) {
+      touch = event.touches[0];
+    }
+    if (touch) {
+      var rect = canvasElement.getBoundingClientRect();
+      var scaleX = width / rect.width;
+      var scaleY = height / rect.height;
+      var localX = (touch.clientX - rect.left) * scaleX;
+      var localY = (touch.clientY - rect.top) * scaleY;
+      handleInteraction(localX, localY);
+    }
+  } else {
+    handleInteraction(mouseX, mouseY);
+  }
+  return false;
+}
+
+function touchMoved() {
   return false;
 }
 
