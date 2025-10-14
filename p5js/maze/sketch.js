@@ -68,6 +68,7 @@ function mousePressed() {
 
 function touchStarted() {
   handleInteraction(mouseX, mouseY);
+  return false;
 }
 
 function handleInteraction(positionX, positionY) {
