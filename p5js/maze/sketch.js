@@ -63,14 +63,35 @@ function draw() {
 }
 
 function mousePressed() {
+  handleInteraction(mouseX, mouseY);
+}
+
+function touchStarted() {
+  if (touches.length > 0) {
+    handleInteraction(touches[0].x, touches[0].y);
+  }
+  return false;
+}
+
+function handleInteraction(positionX, positionY) {
+  if (positionX < 0 || positionY < 0 || positionX >= width || positionY >= height) {
+    return;
+  }
+  var gridX = floor(positionX / cellSize);
+  var gridY = floor(positionY / cellSize);
+  var selectedCell = grid[gridX] && grid[gridX][gridY];
+  if (!selectedCell) {
+    return;
+  }
+
   if (state == 'set start') {
-    start = grid[floor(mouseX / cellSize)][floor(mouseY / cellSize)];
+    start = selectedCell;
     current = start;
     current.visited = true;
     state = 'creating';
   }
   if (state == 'set end') {
-    end = grid[floor(mouseX / cellSize)][floor(mouseY / cellSize)];
+    end = selectedCell;
     state = 'solving';
     current.a_star.open = true;
   }
